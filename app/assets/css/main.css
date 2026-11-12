@@ -1,0 +1,220 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    margin: 0;
+    color: #000;
+    font-family: Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
+  }
+
+  body:has(.legacy-frame) {
+    background: #fff url('/legacy/page-tile.png') repeat 0 0 / 4px 4px;
+  }
+}
+
+@layer components {
+  .legacy-frame {
+    width: min(1296px, 100%);
+    min-width: 1234px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .legacy-chrome {
+    width: calc(100% - 16px);
+  }
+
+  .legacy-banner {
+    height: 69px;
+    background:
+      url('/legacy/banner-left.png') no-repeat left top / 700px 69px,
+      #013556 url('/legacy/banner-stripe.png') repeat-x left top / 2px 69px;
+  }
+
+  .legacy-brand-link {
+    inset: 12px auto 12px 8px;
+    width: 288px;
+  }
+
+  .legacy-role {
+    top: 23px;
+    right: -7px;
+    min-height: 22px;
+  }
+
+  .legacy-nav {
+    height: 23px;
+    padding: 1px 0 1px 2px;
+    background: #b3d1f1 url('/legacy/nav-strip.png') repeat-x 0 0 / 2px 23px;
+  }
+
+  .legacy-tab {
+    display: flex;
+    align-items: center;
+    padding-inline: 4px;
+    border-right: 2px solid #000;
+    color: inherit;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .legacy-tab:first-child {
+    border-left: 2px solid #000;
+  }
+
+  .legacy-copyright {
+    height: 37px;
+    color: #fff;
+    background-color: #012f50;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .legacy-warning {
+    min-height: 20px;
+    padding-top: 2px;
+    color: #a54d28;
+    background: #f6f6f6 url('/legacy/footer-tile.png') repeat 0 0 / 2px 2px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .legacy-home {
+    min-height: 150px;
+    padding-top: 37px;
+    line-height: 24px;
+  }
+
+  .legacy-home-notice {
+    color: #00aeef;
+  }
+
+  .legacy-table-area {
+    padding: 36px 0 20px 46px;
+  }
+
+  .legacy-table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    line-height: 1.25;
+  }
+
+  .legacy-table th,
+  .legacy-table td {
+    padding: 1px;
+    border: 1.5px solid #6a6a6a;
+    vertical-align: middle;
+  }
+
+  .legacy-table-title {
+    height: 50px;
+    background: #b4d7f7;
+    font-size: 17px;
+    text-align: center;
+  }
+
+  .legacy-column-head {
+    background: #7aaadb;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .legacy-computers {
+    width: 1172px;
+  }
+
+  .legacy-computer-head {
+    height: 63px;
+  }
+
+  .legacy-computer-row {
+    height: 328px;
+  }
+
+  .legacy-computer-row td:not(.legacy-actions) {
+    white-space: nowrap;
+  }
+
+  .legacy-computer-row .legacy-actions {
+    vertical-align: top;
+  }
+
+  .legacy-button {
+    min-height: 24px;
+    padding: 1px 7px;
+    border: 1px solid #767676;
+    border-radius: 2px;
+    color: #000;
+    background: #efefef;
+    cursor: pointer;
+    font: 13px / 18px Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    white-space: nowrap;
+  }
+
+  .legacy-button:hover {
+    background: #e4e4e4;
+  }
+
+  .legacy-button:active {
+    background: #d5d5d5;
+  }
+
+  .legacy-report {
+    width: 1146px;
+  }
+
+  .legacy-legend,
+  .legacy-export {
+    background: #4682b4;
+  }
+
+  .legacy-legend {
+    height: 127px;
+    color: #000099;
+    line-height: 20.5px;
+  }
+
+  .legacy-export {
+    height: 30px;
+  }
+
+  .legacy-export .legacy-button {
+    min-height: 22px;
+    padding-right: 2px;
+  }
+
+  .legacy-report-head {
+    height: 46px;
+    font-size: 15px;
+    line-height: 21px;
+  }
+
+  .legacy-report-row {
+    height: 49px;
+  }
+
+  .legacy-report-total {
+    height: 40px;
+    font-size: 15px;
+  }
+
+  .legacy-endpoint-count {
+    background: #c5eaf4;
+    font-weight: normal;
+    text-align: center;
+  }
+
+  .legacy-dialog {
+    margin: auto;
+    width: min(440px, calc(100vw - 32px));
+    border: 1px solid #6a6a6a;
+    background: #fff;
+    color: #000;
+  }
+
+  .legacy-dialog::backdrop {
+    background: rgb(0 0 0 / 25%);
+  }
+}

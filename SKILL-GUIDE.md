@@ -1,0 +1,75 @@
+# IRMAS 的 Codex Skill 使用指南
+
+`chtit-uxui-guidance` 版本 `0.2.0-poc.2`，來源是 `UXUI-Test` 的 Git 提交 `179d098`。本機安裝位置為 `.agents/skills/chtit-uxui-guidance/`，由 Codex 在這個專案讀取。下列使用方式適用於已安裝 Skill 的本機專案。公開 repo 收錄兩版的展示程式碼和設計紀錄。
+
+## 在 Codex 呼叫 Skill
+
+1. 在 Codex 開啟桌面的 `cht-skill-test` 資料夾，並在該專案開始新的對話。
+2. 輸入 `$chtit-uxui-guidance` 選用技能。若技能選單沒有顯示，直接在提示詞指定 `.agents/skills/chtit-uxui-guidance/SKILL.md`。
+3. 指定頁面、要改善的地方，以及本次要檢視或實作。Skill 會依目標選擇品牌、Web 版型、資料表格等適用規範。
+
+先確認載入並檢視個人電腦列表
+
+```text
+請用 $chtit-uxui-guidance 檢視 /irmas/computers，先不要修改。
+請回報實際載入的 SKILL.md 路徑、版本，以及最值得改善的三個地方。
+```
+
+要開始做對照版時，可以使用這段提示詞
+
+```text
+請用 $chtit-uxui-guidance 改善個人電腦列表的資訊層級、表格易讀性與窄版操作。
+把優化版放在新的 /irmas/bySkill/computers 路由。
+保留 /irmas/computers 作為原版對照，沿用目前的假資料、按鈕行為與匯出功能。
+請驗證兩個路由，並說明套用的規範和改動。
+```
+
+## 本機查詢
+
+在 `cht-skill-test` 的 PowerShell 使用 Node.js 22 或更新版本執行下列命令。第一行列出這個任務會用到的規則，第二行核對企業識別手冊檔案的 SHA-256，第三行執行套件的測試。
+
+```powershell
+node .agents/skills/chtit-uxui-guidance/scripts/resolve.mjs --task 'data-management,quality' --viewport mweb
+node .agents/skills/chtit-uxui-guidance/scripts/resolve.mjs --task logo --verify-manual
+node --test .agents/skills/chtit-uxui-guidance/scripts/resolve.test.mjs
+```
+
+更多情境可參考套件的 [安裝與使用手冊](.agents/skills/chtit-uxui-guidance/references/usage.md) 與 [任務參數](.agents/skills/chtit-uxui-guidance/references/selection.md)。
+
+
+## IRMAS 新版實作紀錄
+
+| 畫面 | 原版 | 新版 |
+| --- | --- | --- |
+| MyIRMAS | `/irmas` | `/irmas/bySkill` |
+| 個人電腦列表 | `/irmas/computers` | `/irmas/bySkill/computers` |
+| 特定服務連接埠號 | `/irmas/reports/service-ports` | `/irmas/bySkill/reports/service-ports` |
+
+新版頁首的「原版介面」連到同一畫面的原版。新版使用 `app/layouts/optimized.vue`，樣式集中在 `app/assets/css/optimized.css`。假資料、原有展示對話框與 CSV 寫檔工具由兩版共用。
+
+本次使用 `chtit-uxui-guidance` `0.2.0-poc.2`、catalog `2026-11-10.1`，任務為 `layout,data-management,quality`。採用品質準則、品牌核心、Web 實作基線、資料管理與品質檢查。企業識別來源是 `CHT-CIS-20220622` 的 2022-06-22 修訂版。PDF 第 21 頁（01.12）為標準藍，第 22、23 頁（01.13、01.14）為中英文字體。手冊 SHA-256 為 `9c99b2ba99e63f49b444654175f7208c35b488b70aa28019b894207fcd2fc064`，已由 resolver 核對。
+
+| 元件或狀態 | 規範與套用方式 | 驗證結果 |
+| --- | --- | --- |
+| 一般文字與表格 | `ui.font.family` 使用 Helvetica、Arial 與本機中文字型，`ui.font.size` 為 1rem，`ui.lineHeight` 為 1.5。`ui.text`、`ui.surface` 與 `ui.border` 對應文字、底色與分隔線。 | Chrome 已核對桌面、320 CSS px 及 200% 文字縮放。表格保留所有欄位，橫向捲動限在表格區。 |
+| 主按鈕 | `brand.primary`、`ui.action.primary.hover`、`ui.action.primary.pressed` 對應 `#215DA0`、`#1E5693`、`#1D528D`。最小高度 44px、內距 8px × 16px、1px 邊框、4px 圓角。 | Chrome computed style 三種狀態皆相符。白字對比依序為 6.69:1、7.48:1、7.94:1。 |
+| 焦點 | `ui.focus.width` 與 `ui.focus.offset` 均為 2px，採標準藍外框。 | 鍵盤切換焦點、表格方向鍵捲動，以及 hover／pressed 搭配 focus-visible 均通過。標準藍在白底及淺色表頭的對比分別為 6.69:1 與 6.17:1。 |
+| 文字與列操作 | IP 採文字按鈕，水平內距為 0，保留欄位對齊與 44px 最小高度。長操作文字可換行。 | 個人電腦列保留 8 個操作，驗證 IP 詳細資料、展示對話框關閉及資安檢核表下載。 |
+
+驗證通過 `npm.cmd run build`、六個新舊路由、回原版連結、鍵盤焦點及兩份 CSV。資料為既有的靜態示範資料，載入、空資料、錯誤、停用與深色主題未在此示範提供。新版頁首以純文字顯示系統名稱；本次範圍是 Web 版型與資料表格。
+
+
+## EIP 首頁優化紀錄
+
+原版在 `/eip`，優化版在 `/eip/bySkill`。新版的「原版介面」可返回原版。兩版共用首頁元件、示範資料及瀏覽器儲存，版面順序與新增的事件可在兩版查看。
+
+本次使用 `chtit-uxui-guidance` `0.2.0-poc.2` 與 catalog `2026-11-10.1`，採用版型、表單、資料管理及品質檢查。品牌基礎為 `CHT-CIS-20220622` 的 2022-06-22 修訂版。企業標準藍見 PDF 第 21 頁，字體見第 22、23 頁。原檔 SHA-256 為 `9c99b2ba99e63f49b444654175f7208c35b488b70aa28019b894207fcd2fc064`，已由 resolver 核對。
+
+| 區域 | 套用方式 | 驗證 |
+| --- | --- | --- |
+| 導覽、卡片和行事曆 | `app/assets/css/eip-optimized.css` 以 `brand.primary`、`ui.surface`、`ui.text`、`ui.border` 整理配色。沿用 3 欄桌面版和窄版斷點。 | Chrome 核對原版和新版配色、320 CSS px 及 200% 文字縮放。 |
+| 主操作與焦點 | `brand.primary`、`ui.action.primary.hover`、`ui.action.primary.pressed` 分別對應 `#215DA0`、`#1E5693`、`#1D528D`。一般主按鈕最小高度 44px、內距 8px × 16px、圓角 4px，焦點外框及偏移 2px。 | Chrome 核對三種顏色與 hover、pressed 搭配鍵盤焦點。白字對比依序為 6.69:1、7.48:1、7.94:1。行事曆白字按鈕使用白色焦點外框。 |
+| 搜尋和表單 | `ui.input.paddingInline` 為 12px，垂直內距 8px，邊界使用 `#6B7280`。保留欄位、提交、驗證與錯誤訊息。 | 實測查詢、新增行事曆事件和輸入欄位的 computed style。 |
+| 版面與資料 | 新舊路由使用同一組元件和瀏覽器儲存。 | 實測 Alt 加方向鍵移動、儲存版面與切回原版後讀取版面及事件。 |
+
+`npm.cmd run build` 通過。這是靜態示範，正式系統登入、資料載入及停用狀態不適用。
