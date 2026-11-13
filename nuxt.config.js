@@ -12,6 +12,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   vite: { plugins: [tailwindcss()] },
   routeRules: {
+    '/virtual': { prerender: true },
     '/': redirectTo('/irmas'),
     '/my-irmas/computers': redirectTo('/irmas/computers'),
     '/reports/service-ports': redirectTo('/irmas/reports/service-ports'),

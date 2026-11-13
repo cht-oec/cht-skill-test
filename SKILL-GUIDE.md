@@ -1,5 +1,21 @@
 # IRMAS 的 Codex Skill 使用指南
 
+## 虛擬人平台
+
+`/virtual` 依 wireframe 實作租戶／帳號管理。使用 `chtit-uxui-guidance` `0.2.0-poc.2`、catalog `2026-11-10.1`，查詢 `layout,form,data-management,logo,quality`。企業識別手冊為 `CHT-CIS-20220622`，SHA-256 `9c99b2ba99e63f49b444654175f7208c35b488b70aa28019b894207fcd2fc064` 已由 resolver 核對。主色依 PDF p.21／01.12，字體依 p.22–23／01.13–01.14。頁首沿用專案既有的 EIP 彩色標誌圖片，保留原圖比例。Wireframe 的黑色雙語簽署未作重繪。
+
+| 元件 | 對應方式 |
+| --- | --- |
+| 主按鈕與焦點 | `brand.primary`、`ui.action.primary.hover`、`ui.action.primary.pressed` 對應 `#215DA0`、`#1E5693`、`#1D528D`。鍵盤焦點使用 2px 外框和 2px 間距。 |
+| 篩選與表單 | 單行控制項最小高度 44px，輸入框水平內距 12px，邊框 `#6B7280`。 |
+| 表格 | 右對齊用量和數量。租用狀態與 AI 資源用文字和色彩一起標示。窄版保留全部欄位，表格可水平捲動。 |
+
+新增、權限切換、搜尋、篩選、排序和分頁使用本次頁面內的假資料。公版資產管理和報表管理僅展示入口。重新整理會重設資料。
+
+Chrome 已驗證 1920px 桌面版、320px 窄版與 200% 文字縮放，也實測搜尋與空資料、篩選、排序、權限開關、新增與重複代號驗證、分頁及鍵盤焦點。Nuxt 正式建置通過，GitHub Pages 建置已驗證路由與資源路徑。
+
+## IRMAS 與 EIP
+
 `chtit-uxui-guidance` 版本 `0.2.0-poc.2`，來源是 `UXUI-Test` 的 Git 提交 `179d098`。本機安裝位置為 `.agents/skills/chtit-uxui-guidance/`，由 Codex 在這個專案讀取。下列使用方式適用於已安裝 Skill 的本機專案。公開 repo 收錄兩版的展示程式碼和設計紀錄。
 
 ## 在 Codex 呼叫 Skill
