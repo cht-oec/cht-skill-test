@@ -16,7 +16,7 @@ Chrome 已驗證 1920px 桌面版、320px 窄版與 200% 文字縮放，也實�
 
 ## IRMAS 與 EIP
 
-`chtit-uxui-guidance` 版本 `0.2.0-poc.2`，來源是 `UXUI-Test` 的 Git 提交 `179d098`。本機安裝位置為 `.agents/skills/chtit-uxui-guidance/`，由 Codex 在這個專案讀取。下列使用方式適用於已安裝 Skill 的本機專案。公開 repo 收錄兩版的展示程式碼和設計紀錄。
+`chtit-uxui-guidance` 版本 `0.2.0-poc.2`，用於原版與優化版的實作對照，來源為 `UXUI-Test` 的 Git 提交 `179d098`。目前本機安裝為 `0.2.0-poc.4`（`17d7a10`），位置為 `.agents/skills/chtit-uxui-guidance/`，由 Codex 在這個專案讀取。下列使用方式適用於已安裝 Skill 的本機專案。公開 repo 收錄兩版的展示程式碼和設計紀錄。
 
 ## 在 Codex 呼叫 Skill
 
@@ -89,3 +89,17 @@ node --test .agents/skills/chtit-uxui-guidance/scripts/resolve.test.mjs
 | 版面與資料 | 新舊路由使用同一組元件和瀏覽器儲存。 | 實測 Alt 加方向鍵移動、儲存版面與切回原版後讀取版面及事件。 |
 
 `npm.cmd run build` 通過。這是靜態示範，正式系統登入、資料載入及停用狀態不適用。
+
+## EIP 首頁 V2 實作紀錄
+
+本機預覽路由為 `/eip/bySkill/v2`。使用 `chtit-uxui-guidance` `0.2.0-poc.4`、catalog `2026-11-16.1`，查詢 `layout,form,data-management,logo,quality`。已核對企業識別手冊 `CHT-CIS-20220622` 的 SHA-256 `9c99b2ba99e63f49b444654175f7208c35b488b70aa28019b894207fcd2fc064`。
+
+以 1440px 瀏覽器檢視[中華電信官網「關於我們」](https://www.cht.com.tw/zh-tw/home/cht)的頁首、首屏、新聞與影片區。採用白色表面、淺灰內容背景、深灰標題、藍色行動連結、圓角及較寬的區塊留白。新聞標題依官網觀察採日期與標題分列，繼續沿用 EIP 文字及資料。頁首沿用本專案 `public/eip/logo.png` 的圖文組合與原色，識別依 PDF p.26／02.1；既有字型方向依 p.22–23／01.13–01.14。
+
+| 採用面向 | 對應 |
+| --- | --- |
+| 色彩 | `--eip-background` 用官網新聞區的 `#F5F5F5`，`--eip-text` 用 `#333`，沿用 `--eip-surface` 白色。官網深藍連結方向轉成適合 EIP 操作的 `--eip-blue` `#164C78`，hover／pressed 用同色系 `#103E65`、`#0B3254`。 |
+| 層級、圓角、留白 | 沿用本機字型，首頁標題為 26–36px、卡片標題為內文字級的 1.1875 倍。參考影片區的 8px 圓角與首屏膠囊形狀，朝入口網站的密度調整，卡片內距與欄距為 16–24px。 |
+| 表單與焦點 | 沿用 `--eip-control-height` 44px、一般控制項 4px 圓角、輸入邊界 `#6B7280` 和水平內距 12px。焦點 2px 外框、2px 間距，行事曆深色區用白色焦點。保留表單錯誤文字和紅色語意。 |
+
+Chrome 驗證 1440px、320 CSS px 及 320px 下 200% 文字縮放。測試搜尋有／無結果、收合、頁籤、待批數量更新、月曆切換、必填與時間驗證、建立整日事件、卡片拖曳及鍵盤重排。版面與事件在 V1 同樣可讀取。節慶背景、原有大字模式和標誌載入通過。新增事件的必填錯誤顯示紅色邊框與 2px 焦點。主按鈕在 hover、pressed 時保持焦點提示，三種啟用背景與白字的對比分別為 8.98、11.06、13.14，表單框線對白底為 4.83，行事曆最亮漸層端點對白字為 6.66。現有 EIP 示範頁沒有載入、停用、唯讀或深色模式情境。三個 EIP 路由的 GitHub Pages 靜態輸出與資源路徑已核對。

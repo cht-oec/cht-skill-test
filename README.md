@@ -21,6 +21,8 @@ npm.cmd run dev
 | 特定服務連接埠號 | `/irmas/reports/service-ports` | `/irmas/bySkill/reports/service-ports` |
 | EIP 首頁 | `/eip` | `/eip/bySkill` |
 
+EIP 首頁的官網風格對照版位於 `/eip/bySkill/v2`。
+
 虛擬人平台的租戶／帳號管理展示在 `/virtual`，依提供的 wireframe 套用 Skill。篩選、搜尋、排序、新增與權限開關都使用示範資料，重新整理會重設。
 
 開啟 `/` 會前往 IRMAS 首頁，先前的頁面網址也會導向搬移後的位置。
