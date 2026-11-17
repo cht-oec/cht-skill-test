@@ -59,7 +59,7 @@ function search() {
       <div class="top-controls">
         <div class="pop-wrap">
           <button type="button" class="avatar-trigger" aria-label="我的設定" :aria-expanded="menu === 'profile'" @click.stop="toggle('profile')">
-            <img src="/eip/avatar_men.jpg" alt=""><span aria-hidden="true">▾</span>
+            <img :src="`${baseURL}eip/avatar_men.jpg`" alt=""><span aria-hidden="true">▾</span>
           </button>
           <div v-if="menu === 'profile'" class="dropdown" @click.stop>
             <button type="button" @click="launch('我的個人設定', '', 'profile')">我的個人設定</button>
@@ -77,7 +77,7 @@ function search() {
     <aside class="portal-sidebar" aria-label="主選單">
       <div class="portal-profile">
         <button type="button" class="profile-button" @click.stop="launch('我的個人設定', '', 'profile')">
-          <img src="/eip/avatar_men.jpg" alt=""><span><small>早安</small>{{ portal.settings.name }}</span>
+          <img :src="`${baseURL}eip/avatar_men.jpg`" alt=""><span><small>早安</small>{{ portal.settings.name }}</span>
         </button>
         <button type="button" class="collapse-sidebar" aria-label="收合或展開主選單" @click.stop="sidebar = !sidebar"><PortalIcon name="menu" /></button>
       </div>
