@@ -1,0 +1,17 @@
+.eip.eip-optimized.eip-v3 {
+  --eip-blue: #a13e12;
+  --eip-blue-hover: #82300c;
+  --eip-blue-active: #672507;
+  --eip-text: #32251e;
+  --eip-muted: #5f5147;
+  --eip-background: #f8f1e7;
+  --eip-tint: #fce8d8;
+  --eip-border: #e7d9cd;
+  --eip-theme-header: linear-gradient(90deg, #a13e12, #d87734 55%, #ecaa65);
+  --eip-theme-calendar-end: #a04517;
+}
+
+.eip.eip-v3 .page-toolbar {
+  border-inline-start: 4px solid var(--eip-blue);
+  background: linear-gradient(100deg, #fff4e8, var(--eip-surface) 72%);
+}

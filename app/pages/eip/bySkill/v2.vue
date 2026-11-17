@@ -1,6 +1,7 @@
 <script setup>
 import PortalPage from '~/components/eip/PortalPage.vue'
 import '~/assets/css/eip-optimized.css'
+import '~/assets/css/eip-themed.css'
 import '~/assets/css/eip-v2.css'
 
 definePageMeta({ layout: false })

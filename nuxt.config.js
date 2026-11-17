@@ -14,6 +14,7 @@ export default defineNuxtConfig({
   routeRules: {
     '/virtual': { prerender: true },
     '/eip/bySkill/v2': { prerender: true },
+    '/eip/bySkill/v3': { prerender: true },
     '/': redirectTo('/irmas'),
     '/my-irmas/computers': redirectTo('/irmas/computers'),
     '/reports/service-ports': redirectTo('/irmas/reports/service-ports'),
