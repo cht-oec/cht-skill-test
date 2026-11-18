@@ -1,0 +1,276 @@
+/* V2：以原版 EIP 為原型，僅參考 CHT 官網的配色、版面與留白。 */
+.eip-version-v2 {
+  --link: #1c4e79;
+  --link-hover: #163e61;
+  --link-pressed: #12344f;
+  --ink: #333;
+  --muted: #666;
+  --surface: #f5f5f5;
+  --line: #dedede;
+  --sidebar: 13rem;
+  --header-height: 5.25rem;
+  color-scheme: light;
+  min-height: 100dvh;
+  background: #fff url('/eip/bg01.jpg') center / cover fixed no-repeat;
+  color: var(--ink);
+  font-family: Arial, "Microsoft JhengHei", "PingFang TC", Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.eip-version-v2-plain { background-image: none; }
+.eip-version-v2-large { font-size: 1.125rem; }
+.eip-version-v2-collapsed { --sidebar: 4rem; }
+.eip-version-v2 button { cursor: pointer; }
+.eip-version-v2 button:disabled { cursor: not-allowed; }
+.eip-version-v2 :is(button, a, input, select, textarea, [tabindex]):focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+.eip-version-v2 :is(button, h1, h2, p, label) { overflow-wrap: anywhere; }
+.eip-version-v2 .portal-icon { display: inline-block; width: 1.2em; height: 1.2em; flex: 0 0 auto; vertical-align: middle; }
+
+/* 官網的白色識別列與細色帶，保留 EIP 原有 fixed 導覽。 */
+.eip-version-v2 .topbar { position: fixed; z-index: 20; inset: 0 0 auto; display: flex; min-height: var(--header-height); align-items: center; justify-content: space-between; gap: 12px; padding: 12px 32px; border-bottom: 1px solid var(--line); background: #fff; }
+.eip-version-v2 .topbar::before { position: absolute; inset: 0 0 auto; height: 4px; background: linear-gradient(90deg, #20a6d2, #59baae 45%, #9cb75c 70%, #ff9054); content: ''; }
+.eip-version-v2 .top-brand { display: flex; width: 176px; min-height: 48px; flex: 0 0 auto; align-items: center; }
+.eip-version-v2 .top-brand img { display: block; width: 100%; height: auto; max-height: 52px; object-fit: contain; }
+.eip-version-v2 .top-controls { display: flex; align-items: center; gap: 12px; }
+.eip-version-v2 .top-controls > button,
+.eip-version-v2 .avatar-trigger { display: flex; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; gap: 8px; padding: 8px; border-radius: 50%; color: var(--ink); }
+.eip-version-v2 .top-controls > button:hover,
+.eip-version-v2 .avatar-trigger:hover { background: var(--surface); color: var(--link); }
+.eip-version-v2 .top-controls > button:last-child { border-radius: 999px; padding-inline: 16px; }
+.eip-version-v2 .top-controls .portal-icon { width: 21px; height: 21px; }
+.eip-version-v2 .avatar-trigger img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
+.eip-version-v2 .mobile-nav { display: none; }
+.eip-version-v2:not(.eip-version-v2-plain) .topbar { background: #203c50; color: #fff; }
+.eip-version-v2:not(.eip-version-v2-plain) .top-controls > button,
+.eip-version-v2:not(.eip-version-v2-plain) .avatar-trigger { color: #fff; }
+.eip-version-v2:not(.eip-version-v2-plain) .top-controls > button:hover,
+.eip-version-v2:not(.eip-version-v2-plain) .avatar-trigger:hover { background: #ffffff20; }
+.eip-version-v2:not(.eip-version-v2-plain) .topbar :is(button, a):focus-visible { outline-color: #fff; }
+
+.eip-version-v2 .portal-sidebar { position: fixed; z-index: 10; inset: var(--header-height) auto 0 0; width: var(--sidebar); overflow: auto; border-right: 1px solid #e9e9e9; background: #f8f8f8; scrollbar-width: thin; }
+.eip-version-v2 .portal-profile { position: relative; display: flex; min-height: 96px; align-items: center; padding: 20px 16px; border-bottom: 1px solid var(--line); }
+.eip-version-v2 .profile-button { display: flex; min-width: 0; align-items: center; gap: 12px; text-align: start; font-weight: 600; }
+.eip-version-v2 .profile-button img { width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%; object-fit: cover; }
+.eip-version-v2 .profile-button small { display: block; color: var(--muted); font-size: .8125em; font-weight: 400; }
+.eip-version-v2 .collapse-sidebar { position: absolute; top: 4px; right: 4px; display: grid; width: 32px; min-height: 32px; place-items: center; color: var(--muted); }
+.eip-version-v2 .portal-sidebar nav { padding: 8px; }
+.eip-version-v2 .portal-sidebar nav button { display: grid; width: 100%; min-height: 44px; grid-template-columns: 20px minmax(0, 1fr) auto; align-items: center; gap: 10px; margin-block: 4px; padding: 8px 12px; border-radius: 24px; text-align: start; font-size: .875em; }
+.eip-version-v2 .portal-sidebar nav button:hover { background: #ededed; color: var(--link); }
+.eip-version-v2 .portal-sidebar nav button.active { background: #e4edf3; color: var(--link); font-weight: 700; }
+.eip-version-v2 .portal-sidebar .portal-icon { width: 20px; height: 20px; }
+.eip-version-v2 .nav-arrow { color: var(--muted); font-size: 1.125em; }
+.eip-version-v2-collapsed .portal-sidebar nav button { display: flex; justify-content: center; padding-inline: 8px; }
+.eip-version-v2-collapsed .portal-sidebar nav span,
+.eip-version-v2-collapsed .profile-button span { display: none; }
+.eip-version-v2-collapsed .portal-profile { justify-content: center; padding-inline: 8px; }
+.eip-version-v2-collapsed .profile-button img { width: 36px; height: 36px; }
+
+.eip-version-v2 .portal-main { margin-inline-start: var(--sidebar); padding: calc(var(--header-height) + 40px) 40px 48px; }
+.eip-version-v2 .page-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 32px; }
+.eip-version-v2 .page-toolbar h1 { margin: 0; font-size: 2.5em; font-weight: 600; line-height: 1.25; letter-spacing: .02em; }
+.eip-version-v2:not(.eip-version-v2-plain) .page-toolbar { padding: 24px; border-radius: 16px; background: #fff; }
+.eip-version-v2 .page-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.eip-version-v2 .page-tools > button,
+.eip-version-v2 .page-tools .pop-wrap > button { display: flex; min-height: 44px; align-items: center; justify-content: center; gap: 8px; padding: 10px 20px; border: 1px solid #c8c8c8; border-radius: 999px; background: #fff; color: var(--ink); font-size: .875em; }
+.eip-version-v2 .page-tools .portal-icon { width: 18px; height: 18px; }
+.eip-version-v2 .page-tools .pop-wrap > button:is(:hover, .selected) { border-color: var(--link); background: #f1f5f8; color: var(--link); }
+.eip-version-v2 .page-tools .guide-button { border-color: var(--link); background: var(--link); color: #fff; }
+.eip-version-v2 .page-tools .guide-button:hover { background: var(--link-hover); }
+.eip-version-v2 .page-tools .guide-button:active { background: var(--link-pressed); }
+.eip-version-v2 .pop-wrap { position: relative; }
+.eip-version-v2 .dropdown { position: absolute; z-index: 25; inset: calc(100% + 12px) 0 auto auto; width: max-content; min-width: 192px; max-width: min(360px, calc(100vw - 32px)); padding: 8px; border: 1px solid var(--line); border-radius: 12px; background: #fff; color: var(--ink); box-shadow: 0 8px 24px #00000014; }
+.eip-version-v2 .dropdown > button { display: block; width: 100%; min-height: 44px; padding: 8px 12px; border-radius: 8px; text-align: start; }
+.eip-version-v2 .dropdown > button:hover { background: var(--surface); color: var(--link); }
+.eip-version-v2 .search-popover { width: 320px; padding: 20px; }
+.eip-version-v2 .search-field { display: flex; gap: 8px; }
+.eip-version-v2 .search-field input { width: 100%; min-width: 0; min-height: 44px; padding: 8px 12px; border: 1px solid #767676; border-radius: 8px; }
+.eip-version-v2 .search-field button { min-width: 44px; padding: 8px; border-radius: 50%; background: var(--link); color: #fff; }
+.eip-version-v2 .search-modes { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 12px; font-size: .875em; }
+.eip-version-v2 .search-modes label { display: flex; min-height: 32px; align-items: center; gap: 4px; }
+
+/* 原有內容依官網的灰底分區、留白與底線式頁籤呈現。 */
+.eip-version-v2 .portal-panel,
+.eip-version-v2 .calendar-board { min-width: 0; border: 1px solid #e7e7e7; border-radius: 16px; background: var(--surface); }
+.eip-version-v2 .panel-head,
+.eip-version-v2 .panel-tabs { display: flex; min-height: 64px; align-items: center; border-bottom: 1px solid #d1d1d1; background: transparent; }
+.eip-version-v2 .panel-head { flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 16px 24px; }
+.eip-version-v2 .panel-head h2,
+.eip-version-v2 .calendar-cover h2 { margin: 0; font-size: 1.125em; font-weight: 600; }
+.eip-version-v2 .panel-head > button { min-height: 32px; color: var(--link); font-size: .8125em; font-weight: 600; text-align: start; }
+.eip-version-v2 .panel-head > button:hover { text-decoration: underline; }
+.eip-version-v2 .favorites { padding: 8px; border-color: transparent; }
+.eip-version-v2 .favorites .panel-head { border-bottom: 0; }
+.eip-version-v2 .favorite-tools { display: flex; min-width: 0; flex-wrap: wrap; align-items: center; gap: 16px; }
+.eip-version-v2 .favorite-tools h2 { margin-right: 8px; color: var(--ink); font-size: 1.25em; }
+.eip-version-v2 .favorite-tools sup { margin-left: 4px; color: var(--link); font-size: 8px; }
+.eip-version-v2 .favorite-tools select { max-width: 100%; min-height: 44px; padding: 8px 28px 8px 16px; border: 1px solid #767676; border-radius: 999px; background-color: #fff; color: var(--ink); font-size: .875em; }
+.eip-version-v2 .blue-button { min-height: 44px; padding: 8px 20px; border: 1px solid var(--link); border-radius: 999px; background: var(--link); color: #fff; }
+.eip-version-v2 .blue-button:hover:not(:disabled),
+.eip-version-v2 .search-field button:hover { background: var(--link-hover); }
+.eip-version-v2 .blue-button:active:not(:disabled),
+.eip-version-v2 .search-field button:active { background: var(--link-pressed); }
+.eip-version-v2 .panel-head .panel-collapse { min-width: 44px; min-height: 44px; padding: 8px; font-size: 1.5em; line-height: 1; }
+.eip-version-v2 .favorite-items { display: flex; min-height: 88px; flex-wrap: wrap; align-items: center; gap: 16px; padding: 8px 24px 24px; }
+.eip-version-v2 .favorite-items button { min-height: 48px; padding: 12px 24px; border: 1px solid #e1e1e1; border-radius: 999px; background: #fff; color: var(--ink); box-shadow: 0 4px 16px #00000008; }
+.eip-version-v2 .favorite-items button:hover { border-color: var(--link); color: var(--link); box-shadow: 0 6px 20px #00000012; }
+.eip-version-v2 .favorite-items button:active { background: #eaf0f5; }
+.eip-version-v2 .dashboard-columns { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr) minmax(0, 1fr); gap: 32px; margin-top: 40px; }
+.eip-version-v2 .dashboard-column { display: grid; min-width: 0; min-height: 70px; align-content: start; gap: 32px; }
+.eip-version-v2 .dashboard-widget { min-width: 0; cursor: grab; scroll-margin-top: calc(var(--header-height) + 16px); }
+.eip-version-v2 .dashboard-widget.dragging { opacity: .55; }
+.eip-version-v2 .dashboard-widget.drop-widget,
+.eip-version-v2 .dashboard-column.drop-column { outline: 2px dashed var(--link); outline-offset: 4px; }
+.eip-version-v2 .layout-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px; padding-top: 24px; }
+.eip-version-v2 .layout-actions > button:not(.blue-button) { min-height: 44px; padding: 8px 20px; color: var(--link); }
+.eip-version-v2 .panel-tabs { flex-wrap: wrap; align-items: stretch; padding-inline: 12px; }
+.eip-version-v2 .panel-tabs button { position: relative; min-height: 60px; flex: 1 1 auto; padding: 14px 8px; font-size: .875em; text-align: center; }
+.eip-version-v2 .panel-tabs button:hover { color: var(--link); }
+.eip-version-v2 .panel-tabs button.active { color: var(--link); font-weight: 700; }
+.eip-version-v2 .panel-tabs .active::after { position: absolute; inset: auto 0 -1px; height: 4px; background: var(--link); content: ''; }
+.eip-version-v2 .feed-list,
+.eip-version-v2 .task-list { overflow-y: auto; scrollbar-width: thin; scrollbar-color: #aaa transparent; }
+.eip-version-v2 .feed-list { max-height: calc(var(--feed-height) + 10rem); padding: 0 24px; }
+.eip-version-v2 .feed-list li,
+.eip-version-v2 .task-list li,
+.eip-version-v2 .calendar-list li { display: grid; min-width: 0; align-items: start; border-bottom: 1px solid var(--line); }
+.eip-version-v2 .feed-list li { grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 24px 0; }
+.eip-version-v2 .feed-list li:last-child,
+.eip-version-v2 .task-list li:last-child { border-bottom: 0; }
+.eip-version-v2 .feed-date { display: inline-flex; align-items: center; gap: 4px; color: var(--muted); font-size: .8125em; white-space: nowrap; }
+.eip-version-v2 .feed-date .portal-icon { width: 13px; height: 13px; }
+.eip-version-v2 .feed-list button,
+.eip-version-v2 .task-list button,
+.eip-version-v2 .calendar-list button { min-width: 0; text-align: start; overflow-wrap: anywhere; }
+.eip-version-v2 .feed-list button:hover,
+.eip-version-v2 .task-list button:hover,
+.eip-version-v2 .calendar-list button:hover { color: var(--link); text-decoration: underline; }
+.eip-version-v2 .feed-list .featured { color: var(--link); font-weight: 600; }
+.eip-version-v2 .system-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.eip-version-v2 .system-tiles button { position: relative; display: flex; min-width: 0; min-height: 112px; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 16px 4px; border: 1px solid var(--line); border-radius: 16px; background: #fff; font-size: .8125em; text-align: center; }
+.eip-version-v2 .system-tiles button:hover { border-color: var(--link); background: var(--surface); }
+.eip-version-v2 .system-tiles img { width: 40px; height: 40px; object-fit: contain; }
+.eip-version-v2 .number-badge { display: inline-grid; min-width: 26px; min-height: 26px; flex-shrink: 0; place-items: center; padding: 4px 6px; border-radius: 999px; background: #b42318; color: #fff; font-size: .75rem; font-weight: 700; line-height: 1.25; }
+.eip-version-v2 .system-tiles .number-badge { position: absolute; top: 8px; right: 8px; }
+.eip-version-v2 #needCheck,
+.eip-version-v2 #esystemBoard { scroll-margin-top: calc(var(--header-height) + 16px); }
+.eip-version-v2 .task-toggle { display: flex; width: 100%; min-height: 56px; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 24px; background: #e4edf3; color: var(--link); text-align: start; font-size: .875em; font-weight: 600; }
+.eip-version-v2 .task-list { max-height: 520px; padding-inline: 24px; }
+.eip-version-v2 .task-list li { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 24px 0; }
+.eip-version-v2 .task-list li .feed-date { justify-self: end; }
+.eip-version-v2 .empty-panel { min-height: 56px; }
+
+.eip-version-v2 .calendar-cover { position: relative; padding-bottom: 8px; border-radius: 16px 16px 0 0; background: #fff; }
+.eip-version-v2 .calendar-cover h2 { padding: 20px 24px; border-bottom: 1px solid var(--line); }
+.eip-version-v2 .calendar-date { display: grid; margin: 24px 24px 0; line-height: 1.2; }
+.eip-version-v2 .calendar-date span { color: var(--muted); font-size: .875em; }
+.eip-version-v2 .calendar-date strong { margin-top: 4px; font-size: 4em; font-weight: 600; }
+.eip-version-v2 .calendar-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; padding: 16px; }
+.eip-version-v2 .calendar-actions button { display: flex; min-height: 44px; align-items: center; gap: 8px; padding: 8px 16px; border: 1px solid #bbc8d3; border-radius: 999px; color: var(--link); font-size: .8125em; }
+.eip-version-v2 .calendar-actions button:hover { border-color: var(--link); background: #edf2f6; }
+.eip-version-v2 .analog-clock { position: absolute; top: 104px; right: 24px; width: 72px; height: 72px; border: 2px solid var(--link); border-radius: 50%; }
+.eip-version-v2 .analog-clock::after { position: absolute; top: 50%; left: 50%; width: 6px; height: 6px; border-radius: 50%; background: var(--link); content: ''; transform: translate(-50%, -50%); }
+.eip-version-v2 .analog-clock span { position: absolute; left: calc(50% - 1px); bottom: 50%; width: 2px; height: 25px; border-radius: 2px; background: var(--link); transform-origin: center bottom; transform: rotate(-5deg); }
+.eip-version-v2 .analog-clock span + span { height: 19px; transform: rotate(-30deg); }
+.eip-version-v2 .calendar-list { min-height: 64px; }
+.eip-version-v2 .calendar-list li { grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px; align-items: center; padding: 20px 24px; font-size: .8125em; }
+.eip-version-v2 .calendar-list .calendar-empty { display: block; color: var(--muted); }
+.eip-version-v2 .system-categories { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding: 24px; }
+.eip-version-v2 .system-categories button { min-width: 0; min-height: 44px; padding: 8px; border: 1px solid #b8c5d0; border-radius: 8px; background: #fff; color: var(--link); font-size: .8125em; text-align: start; }
+.eip-version-v2 .system-categories button:hover { border-color: var(--link); background: #edf2f6; }
+
+/* 表單與彈窗保留原生控制項、事件及驗證策略。 */
+.eip-version-v2 .portal-dialog { margin: auto; width: min(580px, calc(100% - 32px)); max-height: calc(100dvh - 32px); overflow: auto; border: 1px solid var(--line); border-radius: 16px; background: #fff; color: var(--ink); box-shadow: 0 20px 64px #00000026; }
+.eip-version-v2 .portal-dialog::backdrop { background: #1b273d80; }
+.eip-version-v2 .portal-dialog.dialog-wide { width: min(920px, calc(100% - 32px)); }
+.eip-version-v2 .portal-dialog .panel-head > button { min-width: 44px; min-height: 44px; font-size: 1.5em; }
+.eip-version-v2 .dialog-body { padding: 24px; overflow-wrap: anywhere; }
+.eip-version-v2 .dialog-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px; margin-top: 24px; }
+.eip-version-v2 .dialog-actions button { min-height: 44px; padding: 8px 20px; border: 1px solid var(--link); border-radius: 999px; }
+.eip-version-v2 .dialog-actions button:not(.blue-button) { background: #fff; color: var(--link); }
+.eip-version-v2 .portal-form { display: grid; gap: 16px; }
+.eip-version-v2 .portal-form label:not(.check) { display: grid; min-width: 0; gap: 8px; font-size: .875em; font-weight: 600; }
+.eip-version-v2 .portal-form :is(input:not([type='checkbox']), select, textarea) { width: 100%; min-width: 0; min-height: 44px; padding: 8px 12px; border: 1px solid #767676; border-radius: 8px; background-color: #fff; color: var(--ink); font: inherit; font-weight: 400; }
+.eip-version-v2 .portal-form :is(input, select, textarea):hover:not(:disabled):not([readonly]) { border-color: var(--link); }
+.eip-version-v2 .portal-form textarea { resize: vertical; }
+.eip-version-v2 .portal-form .check { display: flex; min-height: 36px; align-items: center; gap: 8px; font-size: .875em; }
+.eip-version-v2 input:is([type='checkbox'], [type='radio']) { width: 18px; height: 18px; flex-shrink: 0; accent-color: var(--link); }
+.eip-version-v2 .form-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.eip-version-v2 .form-error { color: #a40000; font-size: .875em; }
+.eip-version-v2 .result-list { margin-top: 16px; }
+.eip-version-v2 .result-list li { padding: 16px 8px; border-bottom: 1px solid var(--line); }
+.eip-version-v2 .result-list li:nth-child(even) { background: var(--surface); }
+.eip-version-v2 .result-list button { min-height: 44px; color: var(--link); text-align: start; }
+.eip-version-v2 .month-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 24px; }
+.eip-version-v2 .month-toolbar > div button { min-width: 44px; min-height: 44px; padding: 8px; border: 1px solid #767676; color: var(--link); }
+.eip-version-v2 .month-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); border-inline-start: 1px solid var(--line); border-block-start: 1px solid var(--line); }
+.eip-version-v2 .month-grid > * { min-width: 0; border-inline-end: 1px solid var(--line); border-block-end: 1px solid var(--line); }
+.eip-version-v2 .month-grid > strong { padding: 8px 4px; background: var(--surface); text-align: center; font-size: .875em; }
+.eip-version-v2 .month-day { min-height: 80px; padding: 4px; }
+.eip-version-v2 .month-day.today { background: #fff4cf; }
+.eip-version-v2 .month-day button { display: block; min-height: 32px; max-width: 100%; padding: 4px; text-align: start; }
+.eip-version-v2 .month-day .month-event { margin-top: 4px; border-radius: 4px; background: #e4edf3; color: var(--link); font-size: .75em; overflow-wrap: anywhere; }
+
+@media (max-width: 1199px) {
+  .eip-version-v2 .portal-main { padding-inline: 24px; }
+  .eip-version-v2 .dashboard-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .eip-version-v2 .dashboard-column { gap: 24px; }
+  .eip-version-v2 .dashboard-column:last-child { grid-column: 1 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+  .eip-version-v2 .system-categories { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 760px) {
+  .eip-version-v2 { --sidebar: 0px; --header-height: 4.25rem; }
+  .eip-version-v2 .topbar { gap: 0; padding: 8px; }
+  .eip-version-v2 .top-brand { width: clamp(88px, 24vw, 150px); }
+  .eip-version-v2 .top-controls { gap: 0; }
+  .eip-version-v2 .top-controls > button,
+  .eip-version-v2 .avatar-trigger { min-width: 32px; padding-inline: 4px; font-size: .75em; }
+  .eip-version-v2 .top-controls > button:last-child { padding-inline: 4px; }
+  .eip-version-v2 .avatar-trigger { gap: 2px; }
+  .eip-version-v2 .avatar-trigger img { width: 24px; height: 24px; }
+  .eip-version-v2 .mobile-nav { display: grid; min-width: 32px; min-height: 44px; margin-left: auto; padding: 4px; place-items: center; }
+  .eip-version-v2 .portal-sidebar { display: none; width: min(260px, calc(100vw - 48px)); box-shadow: 8px 0 24px #0000001a; }
+  .eip-version-v2-collapsed .portal-sidebar { display: block; }
+  .eip-version-v2-collapsed .portal-sidebar nav button { display: grid; padding-inline: 12px; }
+  .eip-version-v2-collapsed .portal-sidebar nav span,
+  .eip-version-v2-collapsed .profile-button span { display: initial; }
+  .eip-version-v2-collapsed .portal-profile { justify-content: flex-start; padding-inline: 16px; }
+  .eip-version-v2-collapsed .profile-button img { width: 44px; height: 44px; }
+  .eip-version-v2 .portal-main { padding: calc(var(--header-height) + 24px) 16px 32px; }
+  .eip-version-v2 .page-toolbar { gap: 24px; margin-bottom: 24px; }
+  .eip-version-v2 .page-toolbar h1 { width: 100%; font-size: 2em; }
+  .eip-version-v2 .page-tools { display: grid; width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .eip-version-v2 .page-tools > button,
+  .eip-version-v2 .page-tools .pop-wrap > button { width: 100%; padding-inline: 8px; }
+  .eip-version-v2 .page-tools .pop-wrap:nth-child(odd) .dropdown { right: auto; left: 0; }
+  .eip-version-v2 .page-tools .pop-wrap:nth-child(even) .dropdown { right: 0; left: auto; }
+  .eip-version-v2 .dropdown { max-width: calc(100vw - 32px); }
+  .eip-version-v2 .favorites { padding: 0; }
+  .eip-version-v2 .favorites .panel-head { flex-wrap: nowrap; align-items: flex-start; padding: 16px; }
+  .eip-version-v2 .favorite-tools { flex: 1; gap: 12px; }
+  .eip-version-v2 .favorite-tools h2 { width: 100%; font-size: 1.125em; }
+  .eip-version-v2 .favorite-tools .blue-button { font-size: .875em; }
+  .eip-version-v2 .panel-head .panel-collapse { flex-shrink: 0; }
+  .eip-version-v2 .favorite-items { gap: 12px; padding: 8px 16px 24px; }
+  .eip-version-v2 .favorite-items button { flex: 1 1 auto; padding-inline: 16px; }
+  .eip-version-v2 .dashboard-columns,
+  .eip-version-v2 .dashboard-column:last-child { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-top: 24px; }
+  .eip-version-v2 .dashboard-column:last-child { margin-top: 0; }
+  .eip-version-v2 .panel-head { padding-inline: 20px; }
+  .eip-version-v2 .panel-tabs { padding-inline: 8px; }
+  .eip-version-v2 .panel-tabs button { flex-basis: 40%; }
+  .eip-version-v2 .calendar-board .panel-tabs button { flex-basis: auto; }
+  .eip-version-v2 .feed-list,
+  .eip-version-v2 .task-list { padding-inline: 20px; }
+  .eip-version-v2 .system-tiles { gap: 8px; }
+  .eip-version-v2 .system-categories { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding: 16px; }
+  .eip-version-v2 .dialog-body { padding: 16px; }
+  .eip-version-v2 .form-row,
+  .eip-version-v2 .calendar-list li { grid-template-columns: minmax(0, 1fr); }
+  .eip-version-v2 .month-day { padding: 2px; }
+  .eip-version-v2 .month-day .month-event { padding: 2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eip-version-v2 { scroll-behavior: auto; }
+}

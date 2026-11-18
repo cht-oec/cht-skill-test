@@ -1,0 +1,295 @@
+/* V1 專用；以 /eip 原版為原型，不載入其他版本的樣式。 */
+.eip-version-v1 {
+  --brand: #215da0;
+  --brand-hover: #1e5693;
+  --brand-pressed: #1d528d;
+  --sidebar: 14rem;
+  --header-height: 4.5rem;
+  --panel-white: #fff;
+  --text: #272525;
+  --muted: #586578;
+  --line: #d9dee7;
+  --soft: #edf3fa;
+  color-scheme: light;
+  min-height: 100dvh;
+  background: #f3f6fa url('/eip/bg01.jpg') center / cover fixed no-repeat;
+  color: var(--text);
+  font-family: Helvetica, Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.eip-version-v1-plain { background-image: none; }
+.eip-version-v1-large { font-size: 1.125rem; }
+.eip-version-v1-collapsed { --sidebar: 4.5rem; }
+.eip-version-v1 button { cursor: pointer; }
+.eip-version-v1 :is(button, a, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+.eip-version-v1 .portal-icon { display: inline-block; flex: 0 0 auto; width: 1.2em; height: 1.2em; vertical-align: middle; }
+.eip-version-v1 :is(button, a, h1, h2, p, label) { overflow-wrap: anywhere; }
+.eip-version-v1 button:disabled { cursor: not-allowed; }
+
+/* 固定頁首與側欄沿用原定位，保留原有導覽與收合操作。 */
+.eip-version-v1 .topbar {
+  position: fixed;
+  z-index: 20;
+  inset: 0 0 auto;
+  display: flex;
+  min-height: var(--header-height);
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 24px;
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+  color: var(--brand);
+}
+.eip-version-v1 .top-brand { display: flex; flex: 0 0 auto; width: 176px; min-height: 48px; align-items: center; }
+.eip-version-v1 .top-brand img { display: block; width: 100%; height: auto; max-height: 52px; object-fit: contain; }
+.eip-version-v1 .top-controls { display: flex; align-items: center; gap: 8px; }
+.eip-version-v1 .top-controls > button,
+.eip-version-v1 .avatar-trigger { display: flex; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; gap: 8px; padding: 8px; border-radius: 4px; }
+.eip-version-v1 .top-controls > button:hover,
+.eip-version-v1 .avatar-trigger:hover { background: var(--soft); }
+.eip-version-v1 .top-controls .portal-icon { width: 20px; height: 20px; }
+.eip-version-v1 .avatar-trigger img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
+.eip-version-v1 .mobile-nav { display: none; }
+.eip-version-v1:not(.eip-version-v1-plain) .topbar { background: #21384f; color: #fff; }
+.eip-version-v1:not(.eip-version-v1-plain) .top-controls > button:hover,
+.eip-version-v1:not(.eip-version-v1-plain) .avatar-trigger:hover { background: #ffffff20; }
+.eip-version-v1:not(.eip-version-v1-plain) .topbar :is(button, a):focus-visible { outline-color: #fff; }
+.eip-version-v1:not(.eip-version-v1-plain) .page-toolbar { padding: 16px; border: 1px solid var(--line); border-radius: 4px; background: #fff; }
+.eip-version-v1 .portal-sidebar {
+  position: fixed;
+  z-index: 10;
+  inset: var(--header-height) auto 0 0;
+  width: var(--sidebar);
+  overflow: auto;
+  border-right: 1px solid var(--line);
+  background: #fff;
+}
+.eip-version-v1 .portal-profile { position: relative; display: flex; min-height: 112px; align-items: center; padding: 24px 16px; border-bottom: 1px solid var(--line); }
+.eip-version-v1 .profile-button { display: flex; min-width: 0; align-items: center; gap: 12px; text-align: start; font-weight: 600; }
+.eip-version-v1 .profile-button img { width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%; object-fit: cover; }
+.eip-version-v1 .profile-button small { display: block; margin-bottom: 4px; color: var(--muted); font-size: .8125em; font-weight: 400; }
+.eip-version-v1 .collapse-sidebar { position: absolute; top: 8px; right: 4px; display: grid; width: 32px; height: 32px; place-items: center; color: var(--muted); }
+.eip-version-v1 .portal-sidebar nav { padding: 12px 8px; }
+.eip-version-v1 .portal-sidebar nav button {
+  display: grid;
+  width: 100%;
+  min-height: 52px;
+  grid-template-columns: 22px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  margin-block: 4px;
+  padding: 12px;
+  border-radius: 4px;
+  text-align: start;
+}
+.eip-version-v1 .portal-sidebar nav button:hover { background: #f3f6fa; color: var(--brand); }
+.eip-version-v1 .portal-sidebar nav button.active { background: var(--soft); color: var(--brand); font-weight: 700; box-shadow: inset 3px 0 var(--brand); }
+.eip-version-v1 .portal-sidebar .portal-icon { width: 22px; height: 22px; color: var(--brand); }
+.eip-version-v1 .nav-arrow { color: var(--muted); font-size: 1.125em; }
+.eip-version-v1-collapsed .portal-sidebar nav button { display: flex; justify-content: center; padding-inline: 8px; }
+.eip-version-v1-collapsed .portal-sidebar nav span,
+.eip-version-v1-collapsed .profile-button span { display: none; }
+.eip-version-v1-collapsed .profile-button img { width: 36px; height: 36px; }
+.eip-version-v1-collapsed .portal-profile { padding-inline: 17px; }
+
+.eip-version-v1 .portal-main { margin-inline-start: var(--sidebar); padding: calc(var(--header-height) + 24px) 32px 32px; }
+.eip-version-v1 .page-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
+.eip-version-v1 .page-toolbar h1 { margin: 0; color: #233c5b; font-size: 1.75em; font-weight: 700; line-height: 1.3; }
+.eip-version-v1 .page-tools { display: flex; flex-wrap: wrap; gap: 8px; }
+.eip-version-v1 .page-tools > button,
+.eip-version-v1 .page-tools .pop-wrap > button { display: flex; min-height: 44px; align-items: center; justify-content: center; gap: 8px; padding: 8px 16px; border: 1px solid var(--line); border-radius: 4px; background: #fff; color: var(--brand); font-size: .875em; }
+.eip-version-v1 .page-tools .portal-icon { width: 18px; height: 18px; }
+.eip-version-v1 .page-tools .pop-wrap > button:is(:hover, .selected) { border-color: var(--brand); background: var(--soft); }
+.eip-version-v1 .page-tools .guide-button { border-color: var(--brand); background: var(--brand); color: #fff; }
+.eip-version-v1 .page-tools .guide-button:hover { background: var(--brand-hover); }
+.eip-version-v1 .page-tools .guide-button:active { background: var(--brand-pressed); }
+.eip-version-v1 .pop-wrap { position: relative; }
+.eip-version-v1 .dropdown { position: absolute; z-index: 25; inset: calc(100% + 8px) 0 auto auto; width: max-content; min-width: 192px; max-width: min(360px, calc(100vw - 32px)); padding: 8px; border: 1px solid var(--line); border-radius: 4px; background: #fff; color: var(--text); box-shadow: 0 8px 24px #233c5b1a; }
+.eip-version-v1 .dropdown > button { display: block; width: 100%; min-height: 44px; padding: 8px 12px; border-radius: 4px; text-align: start; }
+.eip-version-v1 .dropdown > button:hover { background: var(--soft); }
+.eip-version-v1 .search-popover { width: 320px; padding: 16px; }
+.eip-version-v1 .search-field { display: flex; gap: 8px; }
+.eip-version-v1 .search-field input { width: 100%; min-width: 0; min-height: 44px; padding: 8px 12px; border: 1px solid #6b7280; border-radius: 4px; }
+.eip-version-v1 .search-field button { min-width: 44px; padding: 8px; border-radius: 4px; background: var(--brand); color: #fff; }
+.eip-version-v1 .search-modes { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 12px; font-size: .875em; }
+.eip-version-v1 .search-modes label { display: flex; min-height: 32px; align-items: center; gap: 4px; }
+
+/* 卡片以同一閱讀層級整理，沿用原 DOM、頁籤及捲動機制。 */
+.eip-version-v1 .portal-panel,
+.eip-version-v1 .calendar-board { min-width: 0; border: 1px solid var(--line); border-radius: 4px; background: var(--panel-white); box-shadow: 0 2px 6px #233c5b05; }
+.eip-version-v1 .panel-head,
+.eip-version-v1 .panel-tabs { display: flex; min-height: 56px; align-items: center; border-bottom: 1px solid var(--line); background: #fff; color: var(--text); border-radius: 4px 4px 0 0; }
+.eip-version-v1 .panel-head { justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 12px 16px; }
+.eip-version-v1 .panel-head h2,
+.eip-version-v1 .calendar-cover h2 { margin: 0; font-size: 1em; font-weight: 700; }
+.eip-version-v1 .panel-head > button { min-height: 32px; color: var(--brand); font-size: .8125em; text-align: start; }
+.eip-version-v1 .panel-head > button:hover { text-decoration: underline; }
+.eip-version-v1 .favorite-tools { display: flex; min-width: 0; flex-wrap: wrap; align-items: center; gap: 12px; }
+.eip-version-v1 .favorite-tools h2 { margin-right: 4px; }
+.eip-version-v1 .favorite-tools sup { margin-left: 4px; color: var(--brand); font-size: 8px; }
+.eip-version-v1 .favorite-tools select { min-height: 44px; max-width: 100%; padding: 8px 28px 8px 12px; border: 1px solid #6b7280; border-radius: 4px; background-color: #fff; color: var(--text); }
+.eip-version-v1 .blue-button { min-height: 44px; padding: 8px 16px; border: 1px solid var(--brand); border-radius: 4px; background: var(--brand); color: #fff; }
+.eip-version-v1 .blue-button:hover:not(:disabled),
+.eip-version-v1 .search-field button:hover { background: var(--brand-hover); }
+.eip-version-v1 .blue-button:active:not(:disabled),
+.eip-version-v1 .search-field button:active { background: var(--brand-pressed); }
+.eip-version-v1 .panel-head .panel-collapse { min-width: 44px; min-height: 44px; padding: 8px; font-size: 1.5em; line-height: 1; }
+.eip-version-v1 .favorite-items { display: flex; min-height: 88px; flex-wrap: wrap; align-items: center; gap: 12px; padding: 16px; }
+.eip-version-v1 .favorite-items button { min-height: 44px; padding: 8px 16px; border: 1px solid #a9bbd0; border-radius: 4px; background: #f7faff; color: var(--brand); }
+.eip-version-v1 .favorite-items button:hover { border-color: var(--brand); background: var(--soft); }
+.eip-version-v1 .favorite-items button:active { background: #dce8f5; }
+.eip-version-v1 .dashboard-columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 24px; }
+.eip-version-v1 .dashboard-column { display: grid; min-width: 0; min-height: 70px; align-content: start; gap: 24px; }
+.eip-version-v1 .dashboard-widget { min-width: 0; cursor: grab; scroll-margin-top: calc(var(--header-height) + 16px); }
+.eip-version-v1 .dashboard-widget.dragging { opacity: .55; }
+.eip-version-v1 .dashboard-widget.drop-widget,
+.eip-version-v1 .dashboard-column.drop-column { outline: 2px dashed var(--brand); outline-offset: 4px; }
+.eip-version-v1 .layout-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px; padding-top: 16px; }
+.eip-version-v1 .layout-actions > button:not(.blue-button) { min-height: 44px; padding: 8px 16px; color: var(--brand); }
+.eip-version-v1 .panel-tabs { flex-wrap: wrap; align-items: stretch; padding: 0 8px; }
+.eip-version-v1 .panel-tabs button { position: relative; min-height: 52px; flex: 1 1 auto; padding: 12px 8px; color: var(--muted); font-size: .875em; text-align: center; }
+.eip-version-v1 .panel-tabs button:hover { background: #f3f6fa; color: var(--brand); }
+.eip-version-v1 .panel-tabs button.active { color: var(--brand); font-weight: 700; }
+.eip-version-v1 .panel-tabs .active::after { position: absolute; inset: auto 8px 0; height: 3px; background: var(--brand); content: ''; }
+.eip-version-v1 .feed-list,
+.eip-version-v1 .task-list { overflow-y: auto; scrollbar-width: thin; scrollbar-color: #a9bbd0 transparent; }
+.eip-version-v1 .feed-list { max-height: calc(var(--feed-height) + 8rem); padding: 0 16px; }
+.eip-version-v1 .feed-list li,
+.eip-version-v1 .task-list li,
+.eip-version-v1 .calendar-list li { display: grid; min-width: 0; align-items: start; border-bottom: 1px solid #e8edf3; }
+.eip-version-v1 .feed-list li { grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 16px 0; }
+.eip-version-v1 .feed-list li:last-child,
+.eip-version-v1 .task-list li:last-child { border-bottom: 0; }
+.eip-version-v1 .feed-date { display: inline-flex; align-items: center; gap: 4px; color: var(--muted); font-size: .75em; line-height: 1.5; white-space: nowrap; }
+.eip-version-v1 .feed-date .portal-icon { width: 14px; height: 14px; }
+.eip-version-v1 .feed-list button,
+.eip-version-v1 .task-list button,
+.eip-version-v1 .calendar-list button { min-width: 0; text-align: start; overflow-wrap: anywhere; }
+.eip-version-v1 .feed-list button:hover,
+.eip-version-v1 .task-list button:hover,
+.eip-version-v1 .calendar-list button:hover { color: var(--brand); text-decoration: underline; }
+.eip-version-v1 .feed-list .featured { color: var(--brand); font-weight: 600; }
+.eip-version-v1 .system-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.eip-version-v1 .system-tiles button { position: relative; display: flex; min-width: 0; min-height: 108px; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 12px 4px; border: 1px solid var(--line); border-radius: 4px; background: #fff; color: var(--text); font-size: .8125em; font-weight: 600; text-align: center; }
+.eip-version-v1 .system-tiles button:hover { border-color: var(--brand); background: var(--soft); }
+.eip-version-v1 .system-tiles img { width: 40px; height: 40px; object-fit: contain; }
+.eip-version-v1 .number-badge { display: inline-grid; min-width: 26px; min-height: 26px; flex-shrink: 0; place-items: center; padding: 4px 6px; border-radius: 16px; background: #b42318; color: #fff; font-size: .75rem; font-weight: 700; line-height: 1.25; }
+.eip-version-v1 .system-tiles .number-badge { position: absolute; top: 8px; right: 8px; }
+.eip-version-v1 #needCheck,
+.eip-version-v1 #esystemBoard { scroll-margin-top: calc(var(--header-height) + 16px); }
+.eip-version-v1 .task-toggle { display: flex; width: 100%; min-height: 52px; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--soft); color: var(--brand); text-align: start; font-size: .875em; font-weight: 600; }
+.eip-version-v1 .task-list { max-height: 490px; padding-inline: 16px; }
+.eip-version-v1 .task-list li { grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 16px 0; }
+.eip-version-v1 .task-list li .feed-date { justify-self: end; }
+.eip-version-v1 .empty-panel { min-height: 48px; background: #fafbfd; }
+
+.eip-version-v1 .calendar-cover { position: relative; min-height: 224px; background: var(--brand); color: #fff; border-radius: 4px 4px 0 0; }
+.eip-version-v1 .calendar-cover h2 { padding: 16px; border-bottom: 1px solid #ffffff40; }
+.eip-version-v1 .calendar-date { display: grid; margin: 16px 24px 0; line-height: 1.1; }
+.eip-version-v1 .calendar-date span { font-size: .875em; }
+.eip-version-v1 .calendar-date strong { margin-top: 4px; font-size: 3.5em; font-weight: 600; }
+.eip-version-v1 .calendar-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; padding: 12px 16px 16px; }
+.eip-version-v1 .calendar-actions button { display: flex; min-height: 44px; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid #ffffffa0; border-radius: 4px; font-size: .8125em; }
+.eip-version-v1 .calendar-actions button:hover { background: #ffffff20; }
+.eip-version-v1 .calendar-cover button:focus-visible { outline-color: #fff; }
+.eip-version-v1 .analog-clock { position: absolute; top: 76px; right: 24px; width: 72px; height: 72px; border: 2px solid #fff; border-radius: 50%; }
+.eip-version-v1 .analog-clock::after { position: absolute; top: 50%; left: 50%; width: 6px; height: 6px; border-radius: 50%; background: #fff; content: ''; transform: translate(-50%, -50%); }
+.eip-version-v1 .analog-clock span { position: absolute; left: calc(50% - 1px); bottom: 50%; width: 2px; height: 25px; border-radius: 2px; background: #fff; transform-origin: center bottom; transform: rotate(-5deg); }
+.eip-version-v1 .analog-clock span + span { height: 19px; transform: rotate(-30deg); }
+.eip-version-v1 .calendar-list { min-height: 56px; }
+.eip-version-v1 .calendar-list li { grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px; align-items: center; padding: 16px; font-size: .8125em; }
+.eip-version-v1 .calendar-list .calendar-empty { display: block; color: var(--muted); }
+.eip-version-v1 .system-categories { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding: 16px; }
+.eip-version-v1 .system-categories button { min-width: 0; min-height: 44px; padding: 8px; border: 1px solid var(--line); border-radius: 4px; color: var(--brand); font-size: .8125em; line-height: 1.5; text-align: start; }
+.eip-version-v1 .system-categories button:hover { border-color: var(--brand); background: var(--soft); }
+
+/* Dialog 保留原生 modal、欄位及驗證，僅整理外觀。 */
+.eip-version-v1 .portal-dialog { margin: auto; width: min(560px, calc(100% - 32px)); max-height: calc(100dvh - 32px); overflow: auto; border: 1px solid var(--line); border-radius: 4px; background: #fff; color: var(--text); box-shadow: 0 16px 64px #172b4d33; }
+.eip-version-v1 .portal-dialog::backdrop { background: #172b4d80; }
+.eip-version-v1 .portal-dialog.dialog-wide { width: min(920px, calc(100% - 32px)); }
+.eip-version-v1 .portal-dialog .panel-head > button { min-width: 44px; min-height: 44px; font-size: 1.5em; }
+.eip-version-v1 .dialog-body { padding: 24px; overflow-wrap: anywhere; }
+.eip-version-v1 .dialog-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px; margin-top: 16px; }
+.eip-version-v1 .dialog-actions button { min-height: 44px; padding: 8px 16px; border: 1px solid var(--brand); border-radius: 4px; }
+.eip-version-v1 .dialog-actions button:not(.blue-button) { background: #fff; color: var(--brand); }
+.eip-version-v1 .portal-form { display: grid; gap: 16px; }
+.eip-version-v1 .portal-form label:not(.check) { display: grid; min-width: 0; gap: 8px; font-size: .875em; font-weight: 600; }
+.eip-version-v1 .portal-form :is(input:not([type='checkbox']), select, textarea) { width: 100%; min-width: 0; min-height: 44px; padding: 8px 12px; border: 1px solid #6b7280; border-radius: 4px; background-color: #fff; color: var(--text); font: inherit; font-weight: 400; }
+.eip-version-v1 .portal-form :is(input, select, textarea):hover:not(:disabled):not([readonly]) { border-color: var(--brand); }
+.eip-version-v1 .portal-form textarea { resize: vertical; }
+.eip-version-v1 .portal-form .check { display: flex; min-height: 36px; align-items: center; gap: 8px; font-size: .875em; }
+.eip-version-v1 input:is([type='checkbox'], [type='radio']) { width: 18px; height: 18px; flex-shrink: 0; accent-color: var(--brand); }
+.eip-version-v1 .form-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.eip-version-v1 .form-error { color: #a40000; font-size: .875em; }
+.eip-version-v1 .result-list { margin-top: 12px; }
+.eip-version-v1 .result-list li { padding: 12px 8px; border-bottom: 1px solid var(--line); }
+.eip-version-v1 .result-list li:nth-child(even) { background: #f7f9fc; }
+.eip-version-v1 .result-list button { min-height: 44px; color: var(--brand); text-align: start; }
+.eip-version-v1 .month-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.eip-version-v1 .month-toolbar > div button { min-width: 44px; min-height: 44px; padding: 8px; border: 1px solid #6b7280; color: var(--brand); }
+.eip-version-v1 .month-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); border-inline-start: 1px solid var(--line); border-block-start: 1px solid var(--line); }
+.eip-version-v1 .month-grid > * { min-width: 0; border-inline-end: 1px solid var(--line); border-block-end: 1px solid var(--line); }
+.eip-version-v1 .month-grid > strong { padding: 8px 4px; background: var(--soft); text-align: center; font-size: .875em; }
+.eip-version-v1 .month-day { min-height: 80px; padding: 4px; }
+.eip-version-v1 .month-day.today { background: #fff4db; }
+.eip-version-v1 .month-day button { display: block; min-height: 32px; max-width: 100%; padding: 4px; text-align: start; }
+.eip-version-v1 .month-day .month-event { margin-top: 4px; border-radius: 4px; background: var(--soft); color: var(--brand); font-size: .75em; overflow-wrap: anywhere; }
+
+@media (max-width: 1199px) {
+  .eip-version-v1 .portal-main { padding-inline: 24px; }
+  .eip-version-v1 .dashboard-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .eip-version-v1 .dashboard-column:last-child { grid-column: 1 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+  .eip-version-v1 .system-categories { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 760px) {
+  .eip-version-v1 { --sidebar: 0px; --header-height: 4rem; }
+  .eip-version-v1 .topbar { gap: 0; padding: 8px; }
+  .eip-version-v1 .top-brand { width: clamp(88px, 24vw, 150px); }
+  .eip-version-v1 .top-controls { gap: 0; }
+  .eip-version-v1 .top-controls > button,
+  .eip-version-v1 .avatar-trigger { min-width: 32px; padding-inline: 4px; font-size: .75em; }
+  .eip-version-v1 .avatar-trigger { gap: 2px; }
+  .eip-version-v1 .avatar-trigger img { width: 24px; height: 24px; }
+  .eip-version-v1 .mobile-nav { display: grid; min-width: 32px; min-height: 44px; margin-left: auto; padding: 4px; place-items: center; }
+  .eip-version-v1 .portal-sidebar { display: none; width: min(260px, calc(100vw - 48px)); box-shadow: 8px 0 24px #233c5b22; }
+  .eip-version-v1-collapsed .portal-sidebar { display: block; }
+  .eip-version-v1-collapsed .portal-sidebar nav button { display: grid; padding: 12px; }
+  .eip-version-v1-collapsed .portal-sidebar nav span,
+  .eip-version-v1-collapsed .profile-button span { display: initial; }
+  .eip-version-v1-collapsed .profile-button img { width: 44px; height: 44px; }
+  .eip-version-v1 .portal-main { padding: calc(var(--header-height) + 24px) 16px 24px; }
+  .eip-version-v1 .page-toolbar { gap: 16px; }
+  .eip-version-v1 .page-toolbar h1 { width: 100%; }
+  .eip-version-v1 .page-tools { display: grid; width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .eip-version-v1 .page-tools > button,
+  .eip-version-v1 .page-tools .pop-wrap > button { width: 100%; padding-inline: 8px; }
+  .eip-version-v1 .page-tools .pop-wrap:nth-child(odd) .dropdown { right: auto; left: 0; }
+  .eip-version-v1 .page-tools .pop-wrap:nth-child(even) .dropdown { right: 0; left: auto; }
+  .eip-version-v1 .dropdown { max-width: calc(100vw - 32px); }
+  .eip-version-v1 .dashboard-columns,
+  .eip-version-v1 .dashboard-column:last-child { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .eip-version-v1 .favorite-items { gap: 8px; }
+  .eip-version-v1 .favorites .panel-head { flex-wrap: nowrap; align-items: flex-start; }
+  .eip-version-v1 .favorite-tools { flex: 1; gap: 8px; }
+  .eip-version-v1 .panel-head .panel-collapse { flex-shrink: 0; }
+  .eip-version-v1 .favorite-items button { flex: 1 1 auto; }
+  .eip-version-v1 .panel-tabs button { flex-basis: 40%; }
+  .eip-version-v1 .calendar-board .panel-tabs button { flex-basis: auto; }
+  .eip-version-v1 .system-categories { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .eip-version-v1 .dialog-body { padding: 16px; }
+  .eip-version-v1 .form-row { grid-template-columns: minmax(0, 1fr); }
+  .eip-version-v1 .calendar-list li { grid-template-columns: minmax(0, 1fr); }
+  .eip-version-v1 .month-day { padding: 2px; }
+  .eip-version-v1 .month-day .month-event { padding: 2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eip-version-v1 { scroll-behavior: auto; }
+}

@@ -1,0 +1,269 @@
+/* V3 獨立橘色主題：原型僅為 /eip，未參考其他網站或版本。 */
+.eip-version-v3 {
+  --primary: #b54812;
+  --primary-hover: #96380d;
+  --primary-pressed: #7c2d12;
+  --soft: #fff1e5;
+  --line: #eaded5;
+  --ink: #352b24;
+  --muted: #736355;
+  --sidebar: 13.5rem;
+  --header-height: 4.5rem;
+  color-scheme: light;
+  min-height: 100dvh;
+  background: #fff8f2 url('/eip/bg01.jpg') center / cover fixed no-repeat;
+  color: var(--ink);
+  font-family: Helvetica, Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.eip-version-v3-plain { background-image: none; }
+.eip-version-v3-large { font-size: 1.125rem; }
+.eip-version-v3-collapsed { --sidebar: 4rem; }
+.eip-version-v3 button { cursor: pointer; }
+.eip-version-v3 button:disabled { cursor: not-allowed; }
+.eip-version-v3 :is(button, a, input, select, textarea, [tabindex]):focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.eip-version-v3 :is(button, a, h1, h2, p, label) { overflow-wrap: anywhere; }
+.eip-version-v3 .portal-icon { display: inline-block; width: 1.2em; height: 1.2em; flex: 0 0 auto; vertical-align: middle; }
+
+/* 保留正式圖片的白底與原始比例，橘色主題不改造企業識別。 */
+.eip-version-v3 .topbar { position: fixed; z-index: 20; inset: 0 0 auto; display: flex; min-height: var(--header-height); align-items: center; justify-content: space-between; gap: 8px; padding: 8px 24px; border-bottom: 3px solid var(--primary); background: #fff; }
+.eip-version-v3 .top-brand { display: flex; width: 176px; min-height: 48px; flex: 0 0 auto; align-items: center; }
+.eip-version-v3 .top-brand img { display: block; width: 100%; height: auto; max-height: 52px; object-fit: contain; }
+.eip-version-v3 .top-controls { display: flex; align-items: center; gap: 8px; }
+.eip-version-v3 .top-controls > button,
+.eip-version-v3 .avatar-trigger { display: flex; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; gap: 8px; padding: 8px; border-radius: 4px; color: var(--ink); }
+.eip-version-v3 .top-controls > button:hover,
+.eip-version-v3 .avatar-trigger:hover { background: var(--soft); color: var(--primary); }
+.eip-version-v3 .top-controls .portal-icon { width: 20px; height: 20px; }
+.eip-version-v3 .avatar-trigger img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
+.eip-version-v3 .mobile-nav { display: none; }
+.eip-version-v3:not(.eip-version-v3-plain) .topbar { background: #3d2c23; color: #fff; }
+.eip-version-v3:not(.eip-version-v3-plain) .top-controls > button,
+.eip-version-v3:not(.eip-version-v3-plain) .avatar-trigger { color: #fff; }
+.eip-version-v3:not(.eip-version-v3-plain) .top-controls > button:hover,
+.eip-version-v3:not(.eip-version-v3-plain) .avatar-trigger:hover { background: #584135; }
+.eip-version-v3:not(.eip-version-v3-plain) .topbar :is(button, a):focus-visible { outline-color: #fff; }
+.eip-version-v3 .portal-sidebar { position: fixed; z-index: 10; inset: var(--header-height) auto 0 0; width: var(--sidebar); overflow: auto; background: #3d2c23; color: #f9f1eb; scrollbar-width: thin; scrollbar-color: #a28671 transparent; }
+.eip-version-v3 .portal-sidebar button:focus-visible { outline-color: #ffbb80; outline-offset: -3px; }
+.eip-version-v3 .portal-profile { position: relative; display: flex; min-height: 96px; align-items: center; padding: 16px; border-bottom: 1px solid #6b5142; }
+.eip-version-v3 .profile-button { display: flex; min-width: 0; align-items: center; gap: 12px; text-align: start; font-weight: 600; }
+.eip-version-v3 .profile-button img { width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%; object-fit: cover; }
+.eip-version-v3 .profile-button small { display: block; color: #e7d4c8; font-size: .8125em; font-weight: 400; }
+.eip-version-v3 .collapse-sidebar { position: absolute; top: 4px; right: 4px; display: grid; width: 32px; min-height: 32px; place-items: center; color: #e7d4c8; }
+.eip-version-v3 .portal-sidebar nav { padding: 8px; }
+.eip-version-v3 .portal-sidebar nav button { display: grid; width: 100%; min-height: 44px; grid-template-columns: 20px minmax(0, 1fr) auto; align-items: center; gap: 10px; margin-block: 4px; padding: 8px 12px; border-radius: 4px; text-align: start; font-size: .875em; }
+.eip-version-v3 .portal-sidebar nav button:hover { background: #584135; }
+.eip-version-v3 .portal-sidebar nav button.active { background: var(--primary); color: #fff; font-weight: 700; }
+.eip-version-v3 .portal-sidebar .portal-icon { width: 20px; height: 20px; color: #ffbb80; }
+.eip-version-v3 .portal-sidebar nav button.active .portal-icon { color: #fff; }
+.eip-version-v3 .nav-arrow { color: inherit; font-size: 1.125em; }
+.eip-version-v3-collapsed .portal-sidebar nav button { display: flex; justify-content: center; padding-inline: 8px; }
+.eip-version-v3-collapsed .portal-sidebar nav span,
+.eip-version-v3-collapsed .profile-button span { display: none; }
+.eip-version-v3-collapsed .portal-profile { justify-content: center; padding-inline: 8px; }
+.eip-version-v3-collapsed .profile-button img { width: 36px; height: 36px; }
+
+.eip-version-v3 .portal-main { margin-inline-start: var(--sidebar); padding: calc(var(--header-height) + 24px) 32px 32px; }
+.eip-version-v3 .page-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
+.eip-version-v3 .page-toolbar h1 { margin: 0; padding-left: 16px; border-left: 4px solid var(--primary); font-size: 2em; font-weight: 700; line-height: 1.3; }
+.eip-version-v3:not(.eip-version-v3-plain) .page-toolbar { padding: 16px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+.eip-version-v3 .page-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.eip-version-v3 .page-tools > button,
+.eip-version-v3 .page-tools .pop-wrap > button { display: flex; min-height: 44px; align-items: center; justify-content: center; gap: 8px; padding: 8px 16px; border: 1px solid #b17d59; border-radius: 4px; background: #fff; color: var(--primary); font-size: .875em; }
+.eip-version-v3 .page-tools .portal-icon { width: 18px; height: 18px; }
+.eip-version-v3 .page-tools .pop-wrap > button:is(:hover, .selected) { border-color: var(--primary); background: var(--soft); }
+.eip-version-v3 .page-tools .guide-button { border-color: var(--primary); background: var(--primary); color: #fff; }
+.eip-version-v3 .page-tools .guide-button:hover { background: var(--primary-hover); }
+.eip-version-v3 .page-tools .guide-button:active { background: var(--primary-pressed); }
+.eip-version-v3 .pop-wrap { position: relative; }
+.eip-version-v3 .dropdown { position: absolute; z-index: 25; inset: calc(100% + 8px) 0 auto auto; width: max-content; min-width: 192px; max-width: min(360px, calc(100vw - 32px)); padding: 8px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--ink); box-shadow: 0 8px 24px #5f39151a; }
+.eip-version-v3 .dropdown > button { display: block; width: 100%; min-height: 44px; padding: 8px 12px; border-radius: 4px; text-align: start; }
+.eip-version-v3 .dropdown > button:hover { background: var(--soft); color: var(--primary); }
+.eip-version-v3 .search-popover { width: 320px; padding: 16px; }
+.eip-version-v3 .search-field { display: flex; gap: 8px; }
+.eip-version-v3 .search-field input { width: 100%; min-width: 0; min-height: 44px; padding: 8px 12px; border: 1px solid #856e5e; border-radius: 4px; }
+.eip-version-v3 .search-field button { min-width: 44px; padding: 8px; border-radius: 4px; background: var(--primary); color: #fff; }
+.eip-version-v3 .search-modes { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 12px; font-size: .875em; }
+.eip-version-v3 .search-modes label { display: flex; min-height: 32px; align-items: center; gap: 4px; }
+
+/* 白色內容卡片與暖橘狀態；保留原有 DOM、列表捲動與閱讀順序。 */
+.eip-version-v3 .portal-panel,
+.eip-version-v3 .calendar-board { min-width: 0; border: 1px solid var(--line); border-radius: 8px; background: #fff; box-shadow: 0 2px 6px #5f391505; }
+.eip-version-v3 .panel-head,
+.eip-version-v3 .panel-tabs { display: flex; min-height: 56px; align-items: center; border-bottom: 1px solid var(--line); }
+.eip-version-v3 .panel-head { flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 12px 16px; }
+.eip-version-v3 .panel-head h2,
+.eip-version-v3 .calendar-cover h2 { margin: 0; font-size: 1.0625em; font-weight: 700; }
+.eip-version-v3 .panel-head > button { min-height: 32px; color: var(--primary); font-size: .8125em; text-align: start; }
+.eip-version-v3 .panel-head > button:hover { text-decoration: underline; }
+.eip-version-v3 .favorites .panel-head { border-color: var(--primary); border-radius: 8px 8px 0 0; background: var(--primary); color: #fff; }
+.eip-version-v3 .favorite-tools { display: flex; min-width: 0; flex-wrap: wrap; align-items: center; gap: 12px; }
+.eip-version-v3 .favorite-tools h2 { margin-right: 4px; }
+.eip-version-v3 .favorite-tools sup { margin-left: 4px; font-size: 8px; }
+.eip-version-v3 .favorite-tools select { max-width: 100%; min-height: 44px; padding: 8px 28px 8px 12px; border: 1px solid #856e5e; border-radius: 4px; background-color: #fff; color: var(--ink); font-size: .875em; }
+.eip-version-v3 .blue-button { min-height: 44px; padding: 8px 16px; border: 1px solid var(--primary); border-radius: 4px; background: var(--primary); color: #fff; }
+.eip-version-v3 .blue-button:hover:not(:disabled),
+.eip-version-v3 .search-field button:hover { background: var(--primary-hover); }
+.eip-version-v3 .blue-button:active:not(:disabled),
+.eip-version-v3 .search-field button:active { background: var(--primary-pressed); }
+.eip-version-v3 .favorites .blue-button { border-color: #fff; background: #fff; color: var(--primary); }
+.eip-version-v3 .favorites .blue-button:hover { background: var(--soft); }
+.eip-version-v3 .favorites .blue-button:active { background: #ffdfc4; }
+.eip-version-v3 .favorites .panel-head :is(button, select):focus-visible { outline-color: #fff; }
+.eip-version-v3 .panel-head .panel-collapse { min-width: 44px; min-height: 44px; padding: 8px; font-size: 1.5em; line-height: 1; }
+.eip-version-v3 .favorites .panel-collapse { color: #fff; }
+.eip-version-v3 .favorite-items { display: flex; min-height: 88px; flex-wrap: wrap; align-items: center; gap: 12px; padding: 16px; }
+.eip-version-v3 .favorite-items button { min-height: 44px; padding: 8px 16px; border: 1px solid #b17d59; border-radius: 4px; background: #fff9f4; color: var(--primary); }
+.eip-version-v3 .favorite-items button:hover { border-color: var(--primary); background: var(--soft); }
+.eip-version-v3 .favorite-items button:active { background: #ffdfc4; }
+.eip-version-v3 .dashboard-columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 24px; }
+.eip-version-v3 .dashboard-column { display: grid; min-width: 0; min-height: 70px; align-content: start; gap: 24px; }
+.eip-version-v3 .dashboard-widget { min-width: 0; cursor: grab; scroll-margin-top: calc(var(--header-height) + 16px); }
+.eip-version-v3 .dashboard-widget.dragging { opacity: .55; }
+.eip-version-v3 .dashboard-widget.drop-widget,
+.eip-version-v3 .dashboard-column.drop-column { outline: 2px dashed var(--primary); outline-offset: 4px; }
+.eip-version-v3 .layout-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px; padding-top: 16px; }
+.eip-version-v3 .layout-actions > button:not(.blue-button) { min-height: 44px; padding: 8px 16px; color: var(--primary); }
+.eip-version-v3 .panel-tabs { flex-wrap: wrap; align-items: stretch; gap: 4px; padding: 8px; border-radius: 8px 8px 0 0; background: #fff9f4; }
+.eip-version-v3 .panel-tabs button { min-height: 44px; flex: 1 1 auto; padding: 8px; border-radius: 4px; font-size: .8125em; text-align: center; }
+.eip-version-v3 .panel-tabs button:hover { background: #ffdfc4; color: var(--primary-pressed); }
+.eip-version-v3 .panel-tabs button.active { background: var(--primary); color: #fff; font-weight: 700; }
+.eip-version-v3 .feed-list,
+.eip-version-v3 .task-list { overflow-y: auto; scrollbar-width: thin; scrollbar-color: #bfa38e transparent; }
+.eip-version-v3 .feed-list { max-height: calc(var(--feed-height) + 8rem); padding: 0 16px; }
+.eip-version-v3 .feed-list li,
+.eip-version-v3 .task-list li,
+.eip-version-v3 .calendar-list li { display: grid; min-width: 0; align-items: start; border-bottom: 1px solid #eee4dc; }
+.eip-version-v3 .feed-list li { grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 16px 0; }
+.eip-version-v3 .feed-list li:last-child,
+.eip-version-v3 .task-list li:last-child { border-bottom: 0; }
+.eip-version-v3 .feed-date { display: inline-flex; align-items: center; gap: 4px; color: var(--muted); font-size: .8125em; white-space: nowrap; }
+.eip-version-v3 .feed-date .portal-icon { width: 13px; height: 13px; }
+.eip-version-v3 .feed-list button,
+.eip-version-v3 .task-list button,
+.eip-version-v3 .calendar-list button { min-width: 0; text-align: start; overflow-wrap: anywhere; }
+.eip-version-v3 .feed-list button:hover,
+.eip-version-v3 .task-list button:hover,
+.eip-version-v3 .calendar-list button:hover { color: var(--primary); text-decoration: underline; }
+.eip-version-v3 .feed-list .featured { color: var(--primary); font-weight: 600; }
+.eip-version-v3 .system-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.eip-version-v3 .system-tiles button { position: relative; display: flex; min-width: 0; min-height: 108px; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 12px 4px; border: 1px solid var(--line); border-radius: 8px; background: #fff; font-size: .8125em; text-align: center; }
+.eip-version-v3 .system-tiles button:hover { border-color: var(--primary); background: var(--soft); }
+.eip-version-v3 .system-tiles img { width: 40px; height: 40px; object-fit: contain; }
+.eip-version-v3 .number-badge { display: inline-grid; min-width: 26px; min-height: 26px; flex-shrink: 0; place-items: center; padding: 4px 6px; border-radius: 16px; background: #b42318; color: #fff; font-size: .75rem; font-weight: 700; line-height: 1.25; }
+.eip-version-v3 .system-tiles .number-badge { position: absolute; top: 8px; right: 8px; }
+.eip-version-v3 #needCheck,
+.eip-version-v3 #esystemBoard { scroll-margin-top: calc(var(--header-height) + 16px); }
+.eip-version-v3 .task-toggle { display: flex; width: 100%; min-height: 52px; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--soft); color: var(--primary); text-align: start; font-size: .875em; font-weight: 600; }
+.eip-version-v3 .task-list { max-height: 490px; padding-inline: 16px; }
+.eip-version-v3 .task-list li { grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 16px 0; }
+.eip-version-v3 .task-list li .feed-date { justify-self: end; }
+.eip-version-v3 .empty-panel { min-height: 48px; background: #fffcf9; border-radius: 0 0 8px 8px; }
+
+.eip-version-v3 .calendar-cover { position: relative; border-radius: 8px 8px 0 0; background: var(--primary); color: #fff; }
+.eip-version-v3 .calendar-cover h2 { padding: 16px; border-bottom: 1px solid #ffffff50; }
+.eip-version-v3 .calendar-date { display: grid; margin: 16px 24px 0; line-height: 1.2; }
+.eip-version-v3 .calendar-date span { font-size: .875em; }
+.eip-version-v3 .calendar-date strong { margin-top: 4px; font-size: 3.5em; font-weight: 600; }
+.eip-version-v3 .calendar-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; padding: 16px; }
+.eip-version-v3 .calendar-actions button { display: flex; min-height: 44px; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid #ffffffb3; border-radius: 4px; font-size: .8125em; }
+.eip-version-v3 .calendar-actions button:hover { background: #ffffff20; }
+.eip-version-v3 .calendar-cover button:focus-visible { outline-color: #fff; }
+.eip-version-v3 .analog-clock { position: absolute; top: 88px; right: 24px; width: 72px; height: 72px; border: 2px solid #fff; border-radius: 50%; }
+.eip-version-v3 .analog-clock::after { position: absolute; top: 50%; left: 50%; width: 6px; height: 6px; border-radius: 50%; background: #fff; content: ''; transform: translate(-50%, -50%); }
+.eip-version-v3 .analog-clock span { position: absolute; left: calc(50% - 1px); bottom: 50%; width: 2px; height: 25px; border-radius: 2px; background: #fff; transform-origin: center bottom; transform: rotate(-5deg); }
+.eip-version-v3 .analog-clock span + span { height: 19px; transform: rotate(-30deg); }
+.eip-version-v3 .calendar-list { min-height: 56px; }
+.eip-version-v3 .calendar-list li { grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px; align-items: center; padding: 16px; font-size: .8125em; }
+.eip-version-v3 .calendar-list .calendar-empty { display: block; color: var(--muted); }
+.eip-version-v3 .system-categories { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding: 16px; }
+.eip-version-v3 .system-categories button { min-width: 0; min-height: 44px; padding: 8px; border: 1px solid #b17d59; border-radius: 4px; background: #fff9f4; color: var(--primary); font-size: .8125em; text-align: start; }
+.eip-version-v3 .system-categories button:hover { border-color: var(--primary); background: var(--soft); }
+
+/* 原生 dialog、欄位與錯誤邏輯沿用，只調整可控制的外觀。 */
+.eip-version-v3 .portal-dialog { margin: auto; width: min(560px, calc(100% - 32px)); max-height: calc(100dvh - 32px); overflow: auto; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--ink); box-shadow: 0 16px 64px #352b2433; }
+.eip-version-v3 .portal-dialog::backdrop { background: #352b2480; }
+.eip-version-v3 .portal-dialog.dialog-wide { width: min(920px, calc(100% - 32px)); }
+.eip-version-v3 .portal-dialog .panel-head > button { min-width: 44px; min-height: 44px; font-size: 1.5em; }
+.eip-version-v3 .dialog-body { padding: 24px; overflow-wrap: anywhere; }
+.eip-version-v3 .dialog-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px; margin-top: 16px; }
+.eip-version-v3 .dialog-actions button { min-height: 44px; padding: 8px 16px; border: 1px solid var(--primary); border-radius: 4px; }
+.eip-version-v3 .dialog-actions button:not(.blue-button) { background: #fff; color: var(--primary); }
+.eip-version-v3 .portal-form { display: grid; gap: 16px; }
+.eip-version-v3 .portal-form label:not(.check) { display: grid; min-width: 0; gap: 8px; font-size: .875em; font-weight: 600; }
+.eip-version-v3 .portal-form :is(input:not([type='checkbox']), select, textarea) { width: 100%; min-width: 0; min-height: 44px; padding: 8px 12px; border: 1px solid #856e5e; border-radius: 4px; background-color: #fff; color: var(--ink); font: inherit; font-weight: 400; }
+.eip-version-v3 .portal-form :is(input, select, textarea):hover:not(:disabled):not([readonly]) { border-color: var(--primary); }
+.eip-version-v3 .portal-form textarea { resize: vertical; }
+.eip-version-v3 .portal-form .check { display: flex; min-height: 36px; align-items: center; gap: 8px; font-size: .875em; }
+.eip-version-v3 input:is([type='checkbox'], [type='radio']) { width: 18px; height: 18px; flex-shrink: 0; accent-color: var(--primary); }
+.eip-version-v3 .form-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.eip-version-v3 .form-error { color: #a40000; font-size: .875em; }
+.eip-version-v3 .result-list { margin-top: 12px; }
+.eip-version-v3 .result-list li { padding: 12px 8px; border-bottom: 1px solid var(--line); }
+.eip-version-v3 .result-list li:nth-child(even) { background: #fff9f4; }
+.eip-version-v3 .result-list button { min-height: 44px; color: var(--primary); text-align: start; }
+.eip-version-v3 .month-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.eip-version-v3 .month-toolbar > div button { min-width: 44px; min-height: 44px; padding: 8px; border: 1px solid #856e5e; color: var(--primary); }
+.eip-version-v3 .month-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); border-inline-start: 1px solid var(--line); border-block-start: 1px solid var(--line); }
+.eip-version-v3 .month-grid > * { min-width: 0; border-inline-end: 1px solid var(--line); border-block-end: 1px solid var(--line); }
+.eip-version-v3 .month-grid > strong { padding: 8px 4px; background: var(--soft); text-align: center; font-size: .875em; }
+.eip-version-v3 .month-day { min-height: 80px; padding: 4px; }
+.eip-version-v3 .month-day.today { background: #ffe1c8; }
+.eip-version-v3 .month-day button { display: block; min-height: 32px; max-width: 100%; padding: 4px; text-align: start; }
+.eip-version-v3 .month-day .month-event { margin-top: 4px; border-radius: 4px; background: var(--soft); color: var(--primary); font-size: .75em; overflow-wrap: anywhere; }
+
+@media (max-width: 1199px) {
+  .eip-version-v3 .portal-main { padding-inline: 24px; }
+  .eip-version-v3 .dashboard-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .eip-version-v3 .dashboard-column:last-child { grid-column: 1 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+  .eip-version-v3 .system-categories { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 760px) {
+  .eip-version-v3 { --sidebar: 0px; --header-height: 4rem; }
+  .eip-version-v3 .topbar { gap: 0; padding: 8px; }
+  .eip-version-v3 .top-brand { width: clamp(88px, 24vw, 150px); }
+  .eip-version-v3 .top-controls { gap: 0; }
+  .eip-version-v3 .top-controls > button,
+  .eip-version-v3 .avatar-trigger { min-width: 32px; padding-inline: 4px; font-size: .75em; }
+  .eip-version-v3 .avatar-trigger { gap: 2px; }
+  .eip-version-v3 .avatar-trigger img { width: 24px; height: 24px; }
+  .eip-version-v3 .mobile-nav { display: grid; min-width: 32px; min-height: 44px; margin-left: auto; padding: 4px; place-items: center; }
+  .eip-version-v3 .portal-sidebar { display: none; width: min(260px, calc(100vw - 48px)); box-shadow: 8px 0 24px #352b2433; }
+  .eip-version-v3-collapsed .portal-sidebar { display: block; }
+  .eip-version-v3-collapsed .portal-sidebar nav button { display: grid; padding-inline: 12px; }
+  .eip-version-v3-collapsed .portal-sidebar nav span,
+  .eip-version-v3-collapsed .profile-button span { display: initial; }
+  .eip-version-v3-collapsed .portal-profile { justify-content: flex-start; padding-inline: 16px; }
+  .eip-version-v3-collapsed .profile-button img { width: 44px; height: 44px; }
+  .eip-version-v3 .portal-main { padding: calc(var(--header-height) + 24px) 16px 24px; }
+  .eip-version-v3 .page-toolbar { gap: 16px; }
+  .eip-version-v3 .page-toolbar h1 { width: 100%; }
+  .eip-version-v3 .page-tools { display: grid; width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .eip-version-v3 .page-tools > button,
+  .eip-version-v3 .page-tools .pop-wrap > button { width: 100%; padding-inline: 8px; }
+  .eip-version-v3 .page-tools .pop-wrap:nth-child(odd) .dropdown { right: auto; left: 0; }
+  .eip-version-v3 .page-tools .pop-wrap:nth-child(even) .dropdown { right: 0; left: auto; }
+  .eip-version-v3 .dropdown { max-width: calc(100vw - 32px); }
+  .eip-version-v3 .favorites .panel-head { flex-wrap: nowrap; align-items: flex-start; }
+  .eip-version-v3 .favorite-tools { flex: 1; gap: 8px; }
+  .eip-version-v3 .panel-head .panel-collapse { flex-shrink: 0; }
+  .eip-version-v3 .favorite-items { gap: 8px; }
+  .eip-version-v3 .favorite-items button { flex: 1 1 auto; }
+  .eip-version-v3 .dashboard-columns,
+  .eip-version-v3 .dashboard-column:last-child { grid-template-columns: minmax(0, 1fr); }
+  .eip-version-v3 .panel-tabs button { flex-basis: 40%; }
+  .eip-version-v3 .calendar-board .panel-tabs button { flex-basis: auto; }
+  .eip-version-v3 .system-tiles { gap: 8px; }
+  .eip-version-v3 .system-categories { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .eip-version-v3 .dialog-body { padding: 16px; }
+  .eip-version-v3 .form-row,
+  .eip-version-v3 .calendar-list li { grid-template-columns: minmax(0, 1fr); }
+  .eip-version-v3 .month-day { padding: 2px; }
+  .eip-version-v3 .month-day .month-event { padding: 2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eip-version-v3 { scroll-behavior: auto; }
+}

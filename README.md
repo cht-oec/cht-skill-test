@@ -24,6 +24,14 @@ npm.cmd run dev
 EIP 首頁的官網風格對照版位於 `/eip/bySkill/v2`。
 橘色主題 V3 位於 `/eip/bySkill/v3`。
 
+本次獨立版本位於 `/eip/version/`，各自以原版 `/eip` 為原型，元件、樣式、資料狀態與本機儲存彼此獨立：
+
+| 版本 | 路徑 | 設計與驗證紀錄 |
+| --- | --- | --- |
+| V1：共通介面指引 | `/eip/version/v1` | [V1 紀錄](docs/eip-version-v1.md) |
+| V2：官網配色、版面與留白 | `/eip/version/v2` | [V2 紀錄](docs/eip-version-v2.md) |
+| V3：獨立橘色主題 | `/eip/version/v3` | [V3 紀錄](docs/eip-version-v3.md) |
+
 虛擬人平台的租戶／帳號管理展示在 `/virtual`，依提供的 wireframe 套用 Skill。篩選、搜尋、排序、新增與權限開關都使用示範資料，重新整理會重設。
 
 開啟 `/` 會前往 IRMAS 首頁，先前的頁面網址也會導向搬移後的位置。
